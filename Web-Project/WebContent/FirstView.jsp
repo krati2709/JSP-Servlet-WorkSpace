@@ -6,41 +6,33 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-
 <body>
-
 	<div align="center">
+		<h1>First View</h1>
 
-		<form action="getForm.jsp">
+		<form action="FirstServlet" method="post">
 
 			<table>
 				<tr>
 					<th>First Name</th>
-					<td><input type="text" name="firstName" value=""
-						placeholder="enter first name"></td>
+					<td><input type= "text" name ="firstName" value ="" placeholder ="enter first name"></td>
 				</tr>
-
+				
 				<tr>
 					<th>Last Name</th>
-					<td><input type="text" name="lastName" value=""
-						placeholder="enter last name"></td>
-
+					<td><input type= "text" name ="lastName" value ="" placeholder ="enter last name"></td>
 				</tr>
-
+				
 				<tr>
-					<th>login</th>
-					<td><input type="email" name="login" value=""
-						placeholder="enter your email"></td>
-
+					<th>Login </th>
+					<td><input type= "email" name ="login" value ="" placeholder ="enter email"></td>
 				</tr>
-
+				
 				<tr>
 					<th>password</th>
-					<td><input type="password" name="password" value=""
-						placeholder="enter your password"></td>
-
+					<td><input type= "password" name ="password" value ="" placeholder ="enter password"></td>
 				</tr>
-
+				
 				<tr>
 					<th>DOB</th>
 					<td><input type="date" name="dob" value=""></td>
@@ -51,12 +43,10 @@
 					<th></th>
 					<td><input type="submit" name = "operation" value ="save" value=""></td>
 				</tr>
-
+				
 			</table>
 
 		</form>
-
 	</div>
-
 </body>
 </html>

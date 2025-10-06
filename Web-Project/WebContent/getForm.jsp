@@ -4,19 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<style>
-    body {
-      background-image: url('your-image.jpg');
-      background-size: cover;   /* makes image cover full screen */
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  </style>
 <title>Insert title here</title>
 </head>
 <body>
-
-
 
 	<%
 		String firstName = request.getParameter("firstName");
