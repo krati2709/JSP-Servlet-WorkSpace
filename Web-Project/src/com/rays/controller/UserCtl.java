@@ -14,16 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.rays.bean.UserBean;
 import com.rays.model.UserModel;
 
-@WebServlet("/UserRegistrationCtl")
-public class UserRegistrationCtl extends HttpServlet {
+@WebServlet("/UserCtl")
+public class UserCtl extends HttpServlet {
 
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect("UserRegistrationView.jsp");
+		response.sendRedirect("UserView.jsp");
 	}
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -47,14 +45,13 @@ public class UserRegistrationCtl extends HttpServlet {
 			
 			model.add(bean);
 			
-			request.setAttribute("successMsg", "User Registration successfull");
-
+			request.setAttribute("successMsg", "user added successfully");
 		} catch (Exception e) {
 			request.setAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("UserView.jsp");
 		rd.forward(request, response);
 
 	}
