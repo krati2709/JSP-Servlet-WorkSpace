@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User Registration</title>
-
+<title>Insert title here</title>
 <style>
 body {
 	font-family: 'Poppins', sans-serif;
@@ -26,17 +25,17 @@ h1 {
 
 .container {
 	background: #fff7f8;
-	margin-top: 40px;
+	margin-top: 60px;
 	padding: 35px 45px;
 	border-radius: 18px;
 	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-	width: 400px;
+	width: 380px;
 	text-align: center;
 }
 
 table {
 	width: 100%;
-	border-spacing: 10px;
+	border-spacing: 12px;
 }
 
 th {
@@ -46,8 +45,7 @@ th {
 	font-size: 14px;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="date"]
-	{
+input[type="email"], input[type="password"] {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #d9a2a8;
@@ -57,8 +55,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
 	background-color: #fff;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus,
-	input[type="date"]:focus {
+input[type="email"]:focus, input[type="password"]:focus {
 	border-color: #b36a75;
 	outline: none;
 	box-shadow: 0 0 6px rgba(179, 106, 117, 0.4);
@@ -80,17 +77,18 @@ input[type="submit"]:hover {
 	background-color: #9a5964;
 }
 
-h4 {
-	margin: 10px 0;
+h2 {
+	font-size: 16px;
 	font-weight: 500;
+	margin: 10px 0;
 }
 
-h4.success {
-	color: #2e7d32;
-}
-
-h4.error {
+h2.error {
 	color: #d32f2f;
+}
+
+h2.success {
+	color: #2e7d32;
 }
 
 footer {
@@ -102,18 +100,17 @@ footer {
 	opacity: 0.9;
 }
 </style>
-
 </head>
 <body>
-	<%@ include file="Header.jsp"%>
-
 	<%
-		String successMsg = (String) request.getAttribute("successMsg");
 		String errorMsg = (String) request.getAttribute("errorMsg");
+		String successMsg = (String) request.getAttribute("successMsg");
 	%>
 
+	<%@ include file="Header.jsp"%>
+
 	<div class="container">
-		<h1>User Registration</h1>
+		<h1>Change Password</h1>
 
 		<%
 			if (errorMsg != null) {
@@ -132,35 +129,26 @@ footer {
 		%>
 
 
-		<form action="UserRegistrationCtl" method="post">
+		<form action="ChangePasswordCtl" method="post">
 			<table>
-				<tr>
-					<th>First Name</th>
-					<td><input type="text" name="firstName"
-						placeholder="Enter first name"></td>
-				</tr>
-				<tr>
-					<th>Last Name</th>
-					<td><input type="text" name="lastName"
-						placeholder="Enter last name"></td>
-				</tr>
 				<tr>
 					<th>Login</th>
 					<td><input type="email" name="login"
-						placeholder="Enter your login"></td>
-				</tr>
-				<tr>
-					<th>Password</th>
-					<td><input type="password" name="password"
 						placeholder="Enter your password"></td>
 				</tr>
 				<tr>
-					<th>Date of Birth</th>
-					<td><input type="date" name="dob"></td>
+					<th>Old password</th>
+					<td><input type="password" name="oldPassword"
+						placeholder="Enter your login"></td>
+				</tr>
+				<tr>
+					<th>New Password</th>
+					<td><input type="password" name="newPassword"
+						placeholder="Enter your password"></td>
 				</tr>
 				<tr>
 					<th></th>
-					<td><input type="submit" name="operation" value="Sign Up"></td>
+					<td><input type="submit" name="operation" value="Save Changes"></td>
 				</tr>
 			</table>
 		</form>
