@@ -1,7 +1,6 @@
 package com.rays.controller;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
@@ -17,13 +16,13 @@ import com.rays.model.UserModel;
 @WebServlet("/UserRegistrationCtl")
 public class UserRegistrationCtl extends HttpServlet {
 
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		response.sendRedirect("UserRegistrationView.jsp");
+
 	}
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -39,21 +38,22 @@ public class UserRegistrationCtl extends HttpServlet {
 		String dob = request.getParameter("dob");
 
 		try {
+
 			bean.setFirstName(firstName);
 			bean.setLastName(lastName);
 			bean.setLogin(login);
 			bean.setPassword(password);
 			bean.setDob(sdf.parse(dob));
-			
+
 			model.add(bean);
-			
-			request.setAttribute("successMsg", "User Registration successfull");
+
+			request.setAttribute("successMsg", "User Registration Successfully");
 
 		} catch (Exception e) {
 			request.setAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
 		rd.forward(request, response);
 

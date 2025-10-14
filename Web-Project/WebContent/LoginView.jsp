@@ -146,7 +146,7 @@ footer {
 				</tr>
 				<tr>
 					<th></th>
-					<td><input type="submit" name="operation" value="Sign In"></td>
+					<td><input type="submit" name="operation" value="Login"></td>
 				</tr>
 			</table>
 		</form>
