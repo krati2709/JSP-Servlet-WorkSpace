@@ -4,104 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login View</title>
-
-<style>
-body {
-	font-family: 'Poppins', sans-serif;
-	background-color: #B99099;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	min-height: 100vh;
-}
-
-h1 {
-	color: #4a2b2b;
-	margin-bottom: 20px;
-	letter-spacing: 1px;
-}
-
-.container {
-	background: #fff7f8;
-	margin-top: 60px;
-	padding: 35px 45px;
-	border-radius: 18px;
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-	width: 380px;
-	text-align: center;
-}
-
-table {
-	width: 100%;
-	border-spacing: 12px;
-}
-
-th {
-	text-align: left;
-	color: #5e3a3a;
-	font-weight: 500;
-	font-size: 14px;
-}
-
-input[type="email"], input[type="password"] {
-	width: 100%;
-	padding: 10px;
-	border: 1px solid #d9a2a8;
-	border-radius: 8px;
-	font-size: 14px;
-	transition: 0.3s;
-	background-color: #fff;
-}
-
-input[type="email"]:focus, input[type="password"]:focus {
-	border-color: #b36a75;
-	outline: none;
-	box-shadow: 0 0 6px rgba(179, 106, 117, 0.4);
-}
-
-input[type="submit"] {
-	background-color: #b36a75;
-	color: white;
-	border: none;
-	border-radius: 8px;
-	padding: 10px 20px;
-	cursor: pointer;
-	font-size: 16px;
-	font-weight: 600;
-	transition: 0.3s;
-}
-
-input[type="submit"]:hover {
-	background-color: #9a5964;
-}
-
-h2 {
-	font-size: 16px;
-	font-weight: 500;
-	margin: 10px 0;
-}
-
-h2.error {
-	color: #d32f2f;
-}
-
-h2.success {
-	color: #2e7d32;
-}
-
-footer {
-	margin-top: auto;
-	padding: 15px;
-	color: #fff;
-	text-align: center;
-	font-size: 14px;
-	opacity: 0.9;
-}
-</style>
-
+<title>Insert title here</title>
 </head>
 <body>
 
@@ -111,14 +14,15 @@ footer {
 	%>
 
 	<%@ include file="Header.jsp"%>
-
-	<div class="container">
-		<h1>Login</h1>
+	<div align="center">
+		<h1>Login View</h1>
 
 		<%
 			if (errorMsg != null) {
 		%>
-		<h4 class="error" style="color: red;"><%=errorMsg%></h4>
+
+		<h2 style="color: red"><%=errorMsg%></h2>
+
 		<%
 			}
 		%>
@@ -126,35 +30,33 @@ footer {
 		<%
 			if (successMsg != null) {
 		%>
-		<h4 class="success" style="color: green;"><%=successMsg%></h4>
+
+		<h2 style="color: green"><%=successMsg%></h2>
+
 		<%
 			}
 		%>
-
 
 		<form action="LoginCtl" method="post">
 			<table>
 				<tr>
 					<th>Login</th>
-					<td><input type="email" name="login"
-						placeholder="Enter your login"></td>
+					<td><input type="email" name="login" value=""
+						placeholder="enter your login"></td>
 				</tr>
 				<tr>
 					<th>Password</th>
-					<td><input type="password" name="password"
-						placeholder="Enter your password"></td>
+					<td><input type="password" name="password" value=""
+						placeholder="enter your password"></td>
 				</tr>
 				<tr>
 					<th></th>
-					<td><input type="submit" name="operation" value="Login"></td>
+					<td><input type="submit" name="operation" value="signIn"></td>
 				</tr>
 			</table>
 		</form>
+
 	</div>
-
-	<footer>
-		<%@ include file="Footer.jsp"%>
-	</footer>
-
+	<%@ include file="Footer.jsp"%>
 </body>
 </html>

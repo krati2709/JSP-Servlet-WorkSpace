@@ -15,6 +15,8 @@ import com.rays.model.UserModel;
 
 @WebServlet("/LoginCtl")
 public class LoginCtl extends HttpServlet {
+	
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,6 +36,7 @@ public class LoginCtl extends HttpServlet {
 
 	}
 
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
