@@ -209,6 +209,8 @@ public class UserModel {
 
 	}
 
+	
+	//search method
 	public List search(UserBean bean, int pageNo, int pageSize) throws Exception {
 
 		List list = new ArrayList();
@@ -254,5 +256,8 @@ public class UserModel {
 		return list;
 
 	}
+	
+	
+	
 
 }

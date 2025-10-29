@@ -12,16 +12,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.rays.bean.JobBean;
 import com.rays.bean.UserBean;
+import com.rays.model.JobModel;
 import com.rays.model.UserModel;
 
-@WebServlet("/UserListCtl.do")
-public class UserListCtl extends HttpServlet {
 
+@WebServlet("/JobListCtl.do")
+public class JobListCtl extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		UserModel model = new UserModel();
-		UserBean bean = new UserBean();
+		JobModel model = new JobModel();
+		JobBean bean = new JobBean();
 		int pageNo = 1;
 		int pageSize = 5;
 		try {
@@ -33,18 +36,18 @@ public class UserListCtl extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("UserListView.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("JobListView.jsp");
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		UserModel model = new UserModel();
-		UserBean bean = new UserBean();
+		JobModel model = new JobModel();
+		JobBean bean = new JobBean();
 		String[] ids = request.getParameterValues("ids");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		int pageNo =1;
-		int pageSize =5;
+		int pageNo = 1;
+		int pageSize = 5;
 
 		if (request.getParameter("operation").equals("delete")) {
 			if (ids != null && ids.length > 0) {
@@ -69,14 +72,7 @@ public class UserListCtl extends HttpServlet {
 			pageNo--;
 		}
 		if (request.getParameter("operation").equals("search")) {
-				bean.setFirstName(request.getParameter("searchByFirstName"));
-				bean.setLastName(request.getParameter("searchByLastName"));
-				bean.setLogin(request.getParameter("searchByLogin"));
-				try {
-					bean.setDob(sdf.parse(request.getParameter("searchByDob")));
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
+				bean.setTitle(request.getParameter("searchByTitle"));
 				try {
 					model.search(bean,pageNo,pageSize);
 				} catch (Exception e) {
@@ -93,7 +89,7 @@ public class UserListCtl extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("UserListView.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("JobListView.jsp");
 		rd.forward(request, response);
 	}
 }

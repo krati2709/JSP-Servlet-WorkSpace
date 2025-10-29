@@ -29,6 +29,8 @@
 	%>
 	<a href="UserCtl.do">Add User</a> |
 	<a href="UserListCtl.do">User List</a> |
+	<a href="JobCtl.do">Add Jobs</a> |
+	<a href="JobListCtl.do">Job List</a> |
 	<a href="LoginCtl?operation=logout">Logout</a>
 	<%
 	} else {

@@ -1,3 +1,4 @@
+<%@page import="com.rays.bean.JobBean"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,19 +12,13 @@
 <body>
 	<%@ include file="Header.jsp"%>
 	<div align="center">
-		<h3>User List</h3>
-		<form action="UserListCtl.do" method="post">
+		<h3>Job List</h3>
+		<form action="JobListCtl.do" method="post">
 			<table>
 				<tr>
 					<th>Search</th>
-					<td><input type="text" name="searchByFirstName" value=""
+					<td><input type="text" name="searchByTitle" value=""
 						placeholder="Search by First name"></td>
-					<td><input type="text" name="searchByLastName" value=""
-						placeholder="Search by Last name"></td>
-					<td><input type="text" name="searchByLogin" value=""
-						placeholder="Search by Login"></td>
-					<td><input type="date" name="searchByDob" value=""
-						placeholder="Search by DOB"></td>
 					<td><input type="submit" name="operation" value="search"></td>
 				</tr>
 			</table>
@@ -31,10 +26,10 @@
 				<tr style="background-color: skyBlue;">
 					<th>Delete</th>
 					<th>ID</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Login</th>
-					<th>Date Of Birth</th>
+					<th>Title</th>
+					<th>Joining Date</th>
+					<th>Experience</th>
+					<th>Status</th>
 					<th>Edit</th>
 				</tr>
 				<%
@@ -59,20 +54,21 @@
 					}
 				%>
 				<%
-					Iterator<UserBean> it = list.iterator();
+					Iterator<JobBean> it = list.iterator();
 				%>
 				<%
 					while (it.hasNext()) {
-						UserBean bean = it.next();
+						JobBean bean = it.next();
 				%>
 				<tr align="center" style="background-color: #d3d3d3;">
 					<td><input type="checkbox" name="ids" value=<%=bean.getId()%>></td>
 					<td><%=bean.getId()%></td>
-					<td><%=bean.getFirstName()%></td>
-					<td><%=bean.getLastName()%></td>
-					<td><%=bean.getLogin()%></td>
-					<td><%=bean.getDob()%></td>
-					<td><a href="UserCtl.do?id=<%=bean.getId()%>">edit</a></td>
+					<td><%=bean.getTitle()%></td>
+					<td><%=bean.getJoiningDate()%></td>
+					<td><%=bean.getExperience()%></td>
+					<td><%=bean.getStatus()%></td>
+					
+					<td><a href="JobCtl.do?id=<%=bean.getId()%>">edit</a></td>
 				</tr>
 				<%
 					}
