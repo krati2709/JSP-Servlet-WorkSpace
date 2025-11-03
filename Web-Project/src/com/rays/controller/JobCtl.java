@@ -14,9 +14,31 @@ import com.rays.bean.JobBean;
 import com.rays.bean.UserBean;
 import com.rays.model.JobModel;
 import com.rays.model.UserModel;
+import com.rays.util.DataValidator;
 
 @WebServlet("/JobCtl.do")
 public class JobCtl extends HttpServlet {
+	
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("in service method");
+
+		String op = request.getParameter("operation");
+		System.out.println("op ===> " + op);
+
+		if (op != null) {
+			System.out.println("op mila ==> ");
+			if (!DataValidator.jobValidation(request)) {
+				System.out.println("data is not validate");
+				RequestDispatcher rd = request.getRequestDispatcher("JobView.jsp");
+				rd.forward(request, response);
+				return;
+			}
+		}
+
+		super.service(request, response);
+	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

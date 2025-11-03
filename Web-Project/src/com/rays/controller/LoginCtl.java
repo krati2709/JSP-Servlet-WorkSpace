@@ -12,9 +12,31 @@ import javax.servlet.http.HttpSession;
 
 import com.rays.bean.UserBean;
 import com.rays.model.UserModel;
+import com.rays.util.DataValidator;
 
 @WebServlet("/LoginCtl")
 public class LoginCtl extends HttpServlet {
+	
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("in service method");
+
+		String op = request.getParameter("operation");
+		System.out.println("op ===> " + op);
+
+		if (op != null) {
+			System.out.println("op mila ==> ");
+			if (!DataValidator.logInValidation(request)) {
+				System.out.println("data is not validate");
+				RequestDispatcher rd = request.getRequestDispatcher("LoginView.jsp");
+				rd.forward(request, response);
+				return;
+			}
+		}
+
+		super.service(request, response);
+	}
 	
 	
 

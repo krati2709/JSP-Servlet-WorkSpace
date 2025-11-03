@@ -53,24 +53,24 @@
 					<th>Title</th>
 					<td><input type="text" name="title"
 						value="<%=bean != null ? bean.getTitle() : ""%>"
-						placeholder="enter job title"></td>
+						placeholder="enter job title"><span style="color: red"><%=request.getAttribute("title") != null ? request.getAttribute("title") : ""%></span></td>
 				</tr>
 				<tr>
 					<th>Joining date</th>
 					<td><input type="date" name="joiningDate"
-						value="<%=bean != null ? bean.getJoiningDate() : ""%>"></td>
+						value="<%=bean != null ? bean.getJoiningDate() : ""%>"><span style="color: red"><%=request.getAttribute("joiningDate") != null ? request.getAttribute("joiningDate") : ""%></span></td>
 				</tr>
 				<tr>
 					<th>Required Experience</th>
 					<td><input type="text" name="experience"
 						value="<%=bean != null ? bean.getExperience() : ""%>"
-						placeholder="enter required experience"></td>
+						placeholder="enter required experience"><span style="color: red"><%=request.getAttribute("experience") != null ? request.getAttribute("experience") : ""%></span></td>
 				</tr>
 				<tr>
 					<th>Status</th>
 					<td><input type="text" name="status"
 						value="<%=bean != null ? bean.getStatus() : ""%>"
-						placeholder="enter current status"></td>
+						placeholder="enter current status"><span style="color: red"><%=request.getAttribute("status") != null ? request.getAttribute("status") : ""%></span></td>
 				</tr>
 				<tr>
 					<th></th>
